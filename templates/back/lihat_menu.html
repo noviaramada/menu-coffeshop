@@ -1,0 +1,55 @@
+{% extends 'back/base.html' %}
+
+{% block content %}
+
+	        <div class="content">
+	            <div class="container-fluid">
+	      
+				</div>
+					<div class="row">
+	                    <div class="col-md-12">
+	                        <div class="card">
+							    <form class="form-horizontal" method="POST" action="">
+									{% csrf_token %}
+		                            <div class="card-header">
+									    <h4 class="card-title">
+											{{title}}
+										</h4>
+									</div>
+		                            <div class="card-content">
+	                                    <div class="form-group">
+	                                        <label>Nama</label>
+	                                        <p>{{menu.nama}}</p>
+	                                    </div>
+	                                    <div class="form-group">
+	                                        <label>Harga</label>
+	                                        <p>{{menu.harga}}</p>
+	                                    </div>
+                                        <div class="form-group">
+	                                        <label>Deskripsi</label>
+                                            <p>{{menu.deskripsi}}</p>
+	                                    </div>
+                                        <div class="form-group">
+	                                        <label>Stok</label>
+	                                        <p>{{menu.stok}}</p>
+	                                    </div>
+	                                    <div class="form-group">
+										{% if menu.menu_image %}
+										<img src="{{ menu.menu_image.url}}">
+										{% endif %}
+	                                    </div>
+										
+	                                    <a href = "{% url 'tabel_menu'  %}" class="btn btn-fill btn-info" >back</a>
+		                            </div>
+							    </form>
+	                        </div> <!-- end card -->
+	            </div>
+
+	    	</div>
+		</div>
+	</div>
+</body>
+
+
+</html>
+{% endblock content %}

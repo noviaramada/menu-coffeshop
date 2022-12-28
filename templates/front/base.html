@@ -1,0 +1,98 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>CoffeShop</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'front/css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'front/css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'front/css/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'front/images/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'front/css/jquery.mCustomScrollbar.min.css' %}">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="{% static 'front/https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' %}">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="{% static 'front/css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'front/css/owl.theme.default.min.css' %}">
+      <link rel="stylesheet" href="{% static 'front/https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css' %}" media="screen">
+   </head>
+   <body>
+      <!-- header section start -->
+      <div class="header_section">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Home</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'menu_list' %}"><Main>Menu</Main></a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'promosi_list' %}">Promo</a>
+                     </li>
+
+                  </ul>
+                        <div class="search_icon">
+                           {% if request.user.is_anonymous %}
+                              <li><a href="{% url 'login' %}">LOGIN</a></li>
+                              {% else %}
+                                 <li><a href="{% url 'dashboard' %}">DASHBOARD</a></li>
+                           {% endif %}
+                        </div>
+               </div>
+            </nav>
+         </div>
+      </div>
+      <!-- header section end -->
+      <!-- banner section start -->
+      <div class="banner_section layout_padding">
+         <div class="container">
+            <div id="costum_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <h1 class="furniture_text">Filosofi Coffee</h1>
+                     <p class="there_text">Kenapa nama kedai ini filosafi kopi? Karena setiap jenis kopi mempunyai filosofinya sendiri.</p>
+                     <div class="contact_bt_main">
+                        <div class="contact_bt"><a href="{% url 'menu_list' %}">MENU</a></div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#costum_slider" role="button" data-slide="prev">
+               <i class=""><img src="{% static 'front/images/left-arrow.png' %}"></i>
+               </a>
+               <a class="carousel-control-next" href="#costum_slider" role="button" data-slide="next">
+               <i class=""><img src="{% static 'front/images/right-arrow.png' %}"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+  <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
+   </body>
+</html>
+
+{% endblock content %}

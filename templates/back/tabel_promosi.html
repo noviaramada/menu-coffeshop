@@ -1,0 +1,57 @@
+{% extends 'back/base.html' %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="toolbar">
+                            <a class="btn" href="{% url 'tambah_promosi' %}">+ PROMOSI</a> &ensp;
+                            <!--Here you can write extra buttons/actions for the toolbar-->
+                        </div>
+                        <table id="bootstrap-table" class="table">
+                            <thead>
+                                <th data-field="state" data-checkbox="true"></th>
+                                <th data-field="id" class="text-center">ID</th>
+                                <th data-field="nama" data-sortable="true">Nama</th>
+                                <th data-field="harga" data-sortable="true">Harga</th>
+                                <th></th>
+                                <th data-field="deskripsi" data-sortable="true">Deskripsi</th>
+                                <th data-field="stok">Stok</th>
+                                <th></th>
+                                <!-- <th data-field="actions" class="td-actions text-right" data-events="operateEvents" data-formatter="operateFormatter">Actions</th> -->
+                                <th> Action </th>
+                            </thead>
+                            <tbody>
+                                {% for p in promosi %}
+                    
+                                <tr>
+                                    <td></td>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{p.nama}}</td>
+                                    <td>{{p.harga}}</td>
+                                    <td>{{p.deskripsi}}</td>
+                                    <td>{{p.stok}}</td>
+                                    <td></td>
+                                    <td></td>
+                                    
+                                    <td>
+                                        <a class ="btn btn-sm btn-info" href="">Lihat</a>
+                                        <a  class ="btn btn-sm btn-info" href="{% url 'edit_promosi' p.id %}">Edit</a>
+                                        <a onclick="return confirm('delete promosi?');" class ="btn btn-sm btn-info" href="{% url 'delete_promosi' p.id %}">Delete</a>
+                                    </td>    
+                                </tr>
+                                
+                                {% endfor %}
+        
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!--  end card  -->
+            </div> <!-- end col-md-12 -->
+        </div> <!-- end row -->
+    </div>
+</div>
+{% endblock content %}
